@@ -35,7 +35,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: slideUp 1.5s infinite ease-in-out;
+    animation: slideUp 1.5s infinite ease-out;
 }
 
 
@@ -76,7 +76,7 @@ body {
 
 @keyframes slideUp {
     0% {
-        transform: translateY(160%);
+        transform: translateY(200%);
         opacity: 0.8;
     }
     30% {
@@ -88,7 +88,7 @@ body {
         opacity: 1;
     }
     100% {
-        transform: translateY(-160%);
+        transform: translateY(-260%);
         opacity: 0.8;
     }
 }

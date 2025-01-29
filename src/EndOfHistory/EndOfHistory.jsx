@@ -23,7 +23,7 @@ export default function EndOfHistory({current, setEndOfHistoryOpen}) {
 
                 <div className={"endOfHistory"}>
                     <div>
-                        <img src={current.images ? current.images : "/src/assets/tree/ReadyPlayerOne.jpg"} alt=""/>
+                        <img src={current.endImage ? current.endImage :  current.images ? current.images  : "/src/assets/tree/ReadyPlayerOne.jpg"} alt=""/>
                     </div>
                 </div>
                 :

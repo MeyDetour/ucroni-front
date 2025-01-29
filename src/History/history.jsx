@@ -60,12 +60,10 @@ const App = () => {
                         let api = await fetch(`${GlobalConstants.baseUrl}api/stories`)
                         let apijson = await api.json()
                         apijson = apijson[0]
-                        const text = apijson.description+ "\n    Cependant, vous avez le pouvoir de changer le cours des chose.\n" +
-                            "                         Voulez-vous essayer d'éviter cette fin  ? "
+                        const text = apijson.description
                         const title = apijson.title;
                         const buttonContent = "Commencer"
                         const buttonAction = "/story/play/" + storieId
-
 
                         navigate("/pageDeBase", {
                             state: {text, title, buttonContent, buttonAction}
