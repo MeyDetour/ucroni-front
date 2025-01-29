@@ -145,7 +145,9 @@ export const EventCreation = () => {
                                 </div>
 
                                 <div className="form-group">
-                                    <label htmlFor="imageUpload">Images (facultatif)</label>
+                                    <label htmlFor="imageUpload">Images </label>
+
+                                    {images.length >0  && <span style={{color:"red"}}> ya une image</span>}
                                     <input
                                         id="imageUpload"
                                         type="file"
@@ -157,7 +159,7 @@ export const EventCreation = () => {
                                         }}
                                         className="form-input"
                                     />
-                                    <br/>
+                                   <br/>
                                     <br/>
 
                                 </div>
