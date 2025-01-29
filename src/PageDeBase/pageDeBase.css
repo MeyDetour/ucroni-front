@@ -16,11 +16,13 @@
     flex-direction: column;
     background-color: var(--var-bg-color);
     background-image: url('../assets/home/home-blur-bg.svg');
+    background-repeat: no-repeat;
 }
 .pageDeBaseGridContainer{
     height: 30vh;
     width: 100%;
     background-image: url('../assets/home/grille.svg');
+    background-repeat: no-repeat;
 }
 .pageDeBaseTopContainer{
     height: 70vh;

@@ -5,6 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
     server: {
+    allowedHosts:["https://uchronie-frontend.esdlyon.dev","uchronie-frontend.esdlyon.dev"],
       proxy: {
         '/api': {
           target: 'http://localhost:8000',
