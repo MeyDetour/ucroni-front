@@ -15,6 +15,7 @@ export default function Choice({choice=[],setIsThereChoice,setChoiceIsDone,setVa
     if (choice.length === 0) {
         return <h1>Aucun choix disponible</h1>;
     }
+
     logError("Choice Panel is open")
     return (
         <>
@@ -43,6 +44,7 @@ export default function Choice({choice=[],setIsThereChoice,setChoiceIsDone,setVa
                     }`}
                 >
                     {choice.map((item) => (
+
                         <div
                             key={item.id}
                             className="zone-choice"
@@ -75,6 +77,7 @@ export default function Choice({choice=[],setIsThereChoice,setChoiceIsDone,setVa
                                 </button>
                             </div>
                         </div>
+
                     ))}
                 </div>
             </div>

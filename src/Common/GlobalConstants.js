@@ -1,6 +1,6 @@
 
 export class GlobalConstants{
 
-    static baseUrl  = "http://127.0.0.1:46429/"
+    static baseUrl  = "https://uchronie-backend.esdlyon.dev/"
 
 }
