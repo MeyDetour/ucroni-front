@@ -1,0 +1,31 @@
+ .endOfHistory{
+     background: #0a001e;
+     height: 100vh;
+     width: 100vw;
+     position: absolute;
+     top: 0%;
+     left: 0%;
+     z-index: 10;
+
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+ .endOfHistory div{
+     background: url(/src/assets/endOfHistory/bigRoundPurple.png);
+     height: 80vh;
+     width: 80vh;
+     background-size: contain;
+     background-position: center;
+     background-repeat: no-repeat;
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+ }
+ .endOfHistory div img{
+     width: 75%;
+     height: 75%;
+     border-radius: 50%;
+ }

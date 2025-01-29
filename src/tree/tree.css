@@ -1,0 +1,124 @@
+.treePage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    height: 100vh;
+    box-sizing: border-box;
+
+    overflow-y: scroll;
+
+}
+.treePage .lastChoiceSpan{
+    min-height: 20px;
+}
+.row {
+
+    width: 100%;
+    min-height: 17vh;
+    height: fit-content;
+    display: flex;
+
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 5%;
+
+}
+
+.leftAndRightContainer {
+    width: 100%;
+    min-height: 17vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.leftAndRightContainer > .left {
+    width: 50%;
+    min-height: 17vh;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.leftAndRightContainer > .right {
+
+    min-height: 17vh;
+    width: 50%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+}
+
+.svgTreeLine {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -2
+}
+
+svg line {
+    stroke: #C5C5C5;
+    opacity: 100%;
+}
+
+svg.hide line {
+    opacity: 24%;
+}
+
+svg.notShowed line {
+    opacity: 0%;
+}
+svg.youCanSeeLineItsEndOfTree line{
+    opacity: 24% !important;
+}
+svg.lineAnimated  line{
+
+    stroke-dasharray: 360;
+    stroke-dashoffset: 305;
+    animation: draw-line 1.5s linear 0s  forwards; /* Animation */
+}
+
+@keyframes draw-line {
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.currentTextEventContainer {
+    width: 65%;
+
+    min-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-size: cover;
+    background: url("../../src/assets/tree/textBackground.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    padding: 10px 56px;
+    box-sizing: border-box;
+}
+
+.currentTextEvent {
+
+    font-family: "Oxanium", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 34px;
+    text-align: center;
+    width: 89%;
+}
+
+.treePage  .buttonContainer {
+    position: absolute;
+    right: -10%;
+    bottom: -4%;
+    padding: 0;
+}

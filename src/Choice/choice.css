@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Oxanium:wght@200..800&display=swap');
+
+
+body{
+    background-image: url('../assets/choice/background-2.svg');
+    background-color: #090413;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.choicePage{
+    height: 100vh;
+    width: 100vw;
+    z-index: 2;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+
+    padding-top: 2%;
+    padding-inline: 2%;
+    font-family: 'Oxanium', sans-serif;
+
+}
+.toile {
+    background-image: url('../assets/choice/toile.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 70%;
+    width: 90%;
+    position: absolute;
+    top: 35%;
+    left: 50%; 
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+}
+
+
+.top {
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: start;
+    position: absolute;
+    top: 5%;
+    left: 3%;
+    width: 94%;
+}
+
+.top div:last-child{
+
+    width: 15%;
+    text-align: end;
+    display: flex;
+    flex-direction: column;
+
+    font-size: 20px;
+}
+.top div:last-child span:first-child{
+    font-weight: bold;
+}
+.top-content {
+    color: white;
+    background-color: transparent;
+    border: none;
+    width: 230px;
+    height: auto;
+    font-size: 22px;
+    font-family: 'Oxanium', sans-serif;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.arrow-left{
+    height: 3vh;
+    width: auto;
+
+}
+
+.content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    overflow-y: hidden;
+}
+
+.title{
+    font-family: 'Goldman', cursive;
+    color: white;
+    font-size: 58px;
+    display: flex;
+    justify-content: center;
+}
+
+.content-choice {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 70%;
+    max-width: 100%;
+    z-index: 10;
+    margin-top: 3%;
+}
+
+
+.circle {
+    width: 20vw;
+    height: 20vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 30px 10px rgba(72, 61, 139, 0.8), 0 0 50px 30px rgba(0, 0, 255, 0.6);
+    margin-bottom: 10px;
+    transition: all 0.4s ease-in-out;
+}
+
+.circle:hover {
+    box-shadow: 0 0 40px 20px rgba(72, 61, 139, 1), 0 0 60px 40px rgba(0, 0, 255, 0.9);
+    transition: all 0.4s ease-in-out;
+}
+
+.choice-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background-repeat: no-repeat;
+}
+
+
+
+
+.choice-button {
+    background-image: url('../assets/choice/button-choice.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 30px 40px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 28px;
+    text-align: center;
+    width: 420px;
+    height: 200px;
+    font-family: 'Oxanium', sans-serif;
+    transition : all 0.8s ease-in-out;
+}
+
+.choice-button:hover {
+    background-image: url('../assets/choice/btnState-hover.svg');
+    opacity: 0.9;
+    transition : all 0.8s ease-in-out;
+}
+
+
+.zone-choice {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:50px;
+}
+
+.single .content-choice {
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.single-choice .zone-choice {
+    margin: 0 auto;
+}
+
+.single .toile {
+    display: none;
+}
+
+.content-choice {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 60%;
+    max-width: 100%;
+    z-index: 10;
+}

@@ -1,0 +1,43 @@
+  let treeJSON = [{
+              id: 1,
+              text: "Emma explore une ancienne ruine et trouve un miroir mystique. En l’approchant, un fragment se détache et tombe à ses pieds, libérant une lumière étrange.",
+              interaction: null,
+              image: "src/assets/tree/ReadyPlayerOne.jpg",
+              children: [2]
+          }, {
+              id: 2,
+              text: "Elias entre dans la boutique.",
+              interaction: "Entrer dans la boutique",
+              image: "src/assets/tree/ReadyPlayerOne.jpg",
+              children: [3, 6]
+          }, {
+              id: 6,
+              text: "Elias Continue.",
+              interaction: "Continuer la route",
+              image: "src/assets/tree/ReadyPlayerOne.jpg",
+              children: [7]
+          }, {
+              id: 7,
+              text: "Elle rentre dans qqn",
+              interaction: "travcerser la rue",
+              image: "src/assets/tree/ReadyPlayerOne.jpg",
+              children: []
+          }, {
+              id: 3,
+              text: "Elias remarque un miroir dont le reflet ne suit pas parfaitement ses mouvements.",
+              interaction: "Observer la pièce",
+              image: "src/assets/tree/ReadyPlayerOne.jpg",
+              children: [4, 5]
+          }, {
+              id: 4,
+              text: "Elias interroge le vieil homme à propos du miroir. il apprend que ce miroir mène à un monde parallèle.",
+              interaction: " Interroger le viel homme",
+              image: "src/assets/tree/ReadyPlayerOne.jpg",
+              children: []
+          }, {
+              id: 5,
+              text: "Elias décide de toucher immédiatement la surface du miroir.",
+              interaction: "Toucher le miroir",
+              image: "src/assets/tree/ReadyPlayerOne.jpg",
+              children: [4]
+          }]

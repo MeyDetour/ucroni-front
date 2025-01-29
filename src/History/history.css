@@ -1,0 +1,165 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0a001e;
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.story-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.story-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: #c5c5c5;
+    z-index: 0;
+}
+
+.story-bubble-wrapper {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slideUp 1.5s infinite ease-in-out;
+}
+
+
+.story-bubble {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: url("../assets/history/violetBackground.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.story-image {width: 65%;
+    height: 65%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.placeholder-image {
+
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444;
+    color: white;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(160%);
+        opacity: 0.8;
+    }
+    30% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    70% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-160%);
+        opacity: 0.8;
+    }
+}
+
+
+.recap-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background: #0a001e;
+    overflow: hidden;
+}
+
+.recap-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: white;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+    z-index: 0;
+}
+
+.recap-bubble {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: url("../assets/history/violetBackground.png");
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.recap-bubble.gros{
+    scale: 1.3;
+}
+
+
+.recap-bubble img {
+    width: 65%;
+    height: 65%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.last-circle{
+    scale: 1.3;
+}.first-circle{
+    scale: 1.3;
+}
+@keyframes fadeInRecap {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.recap-bubble {
+    animation: fadeInRecap 1s ease-in-out;
+}

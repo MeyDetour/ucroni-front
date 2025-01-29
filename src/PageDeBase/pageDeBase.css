@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Goldman:wght@400;700&family=Oxanium:wght@200..800&display=swap');
+
+
+#root {
+    --var-font-color: white;
+    --var-bg-color: #090413
+}
+.none{
+    display: none;
+}
+.pageDeBase{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--var-bg-color);
+    background-image: url('../assets/home/home-blur-bg.svg');
+}
+.pageDeBaseGridContainer{
+    height: 30vh;
+    width: 100%;
+    background-image: url('../assets/home/grille.svg');
+}
+.pageDeBaseTopContainer{
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100vw;
+}
+.pageDeBaseStickyBottom{
+    text-align: center;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: var(--var-font-color);
+    width: 50%;
+    padding-bottom: 50px;
+}
+.pageDeBaseStickyBottom>*{
+    margin: 0.7rem;
+}
+.pageDeBaseStickyBottom>h1{
+    font-size: 4rem;
+    font-family: 'Goldman', cursive;
+    font-weight: 200;
+}
+.pageDeBaseStickyBottom>p{
+    font-size: 2rem;
+    font-family: 'Oxanium', sans-serif;
+}
+
+
+
+

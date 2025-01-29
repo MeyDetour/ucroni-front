@@ -1,0 +1,62 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+.title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.loading,
+.error,
+.no-stories {
+    text-align: center;
+    font-size: 18px;
+    color: #555;
+}
+
+.error {
+    color: red;
+}
+
+.stories-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.story-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.story-item h2 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.story-item p {
+    margin: 5px 0 10px;
+    color: #666;
+}
+
+.image-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.story-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}

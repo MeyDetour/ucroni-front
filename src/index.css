@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Oxanium:wght@200..800&family=Telex&display=swap');
+:root{
+    --black : #090413
+}
+#root{
+    height: 100%;
+}
+body {
+
+    margin: 0;
+    padding: 0;
+    background: var(--black);
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Telex", serif;
+    font-weight: 400;
+    font-style: normal;
+
+    color: white;
+
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #120826;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #19093E;
+    border-radius: 100px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #120826;
+}
+h1{
+
+    font-family: "Oxanium", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
