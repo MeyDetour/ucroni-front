@@ -61,12 +61,13 @@ const App = () => {
 
                         let apijson = await api.json()
                         const text = apijson.description
+
                         const title = apijson.title;
                         const buttonContent = "Commencer"
                         const buttonAction = "/story/play/" + storieId
-
+const context = "consigne"
                         navigate("/pageDeBase", {
-                            state: {text, title, buttonContent, buttonAction}
+                            state: {text, title, buttonContent, buttonAction,context}
                         });
                     }, 2000); // 2 seconds delay after recap is shown
                 }
