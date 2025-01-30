@@ -96,11 +96,27 @@ export function buildTree(events) {
 }
 
 
-export function getMarginTop (eventsSeen,endOfTree){
+export function getMarginTop (eventsSeen,endOfTree,fullMapSize){
+
     if (!eventsSeen || endOfTree) return {};
-    if (eventsSeen.length < 2) return { marginTop: "-22%" };
-    if (eventsSeen.length < 4) return { marginTop: "-5%" };
-    if (eventsSeen.length < 6) return { marginTop: "0%" };
+
+
+    if (fullMapSize<20)  {
+        if (eventsSeen.length < 3) return { marginTop: "-10%" };
+        if (eventsSeen.length < 5) return { marginTop: "-3%" };
+
+        if (eventsSeen.length < 8) return { marginTop: "0%" };
+
+
+    }else{
+        if (eventsSeen.length < 4) return { marginTop: "-25%" };
+        if (eventsSeen.length < 6) return { marginTop: "-17%" };
+
+        if (eventsSeen.length < 8) return { marginTop: "0%" };
+
+    }
+
+
 
     return {}
 }

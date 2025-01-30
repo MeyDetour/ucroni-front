@@ -52,7 +52,7 @@ export default function Tree() {
                 setFirstEventId(firstEventIdata)
                 const response = await axios.get(`${GlobalConstants.baseUrl}api/events/of/story/${storieId}`);
                 const buildTreeData = buildTree(response.data)
-                setTree(buildTreeData.get(firstEventIdata))
+                  setTree(buildTreeData.get(firstEventIdata))
                 setFullMap(buildTreeData)
                 setEventsSeen((prevEventsSeen) => {
                     if (!prevEventsSeen.includes(firstEventIdata)) {
@@ -273,6 +273,7 @@ export default function Tree() {
 
     console.log("state of tree : ", tree ? tree : undefined)
     console.log("full map : ", fullMap ? fullMap : undefined)
+    console.log("full map size  : ", fullMap ? fullMap.size : undefined)
     console.log("first event id : ", firstEventId ? firstEventId : undefined)
     console.log(" tree id : ", tree ? tree.id : undefined)
     console.log("events seen : ", eventsSeen)
@@ -364,8 +365,7 @@ export default function Tree() {
 
                         // CREATE SVG WITH LINE IN
                         const svgElement = createLineSvg(parentPosition, subEventPosition)
-                        console.log(svgElement)
-                        svgElement.classList.add(`svgRelation${eventId}-${parentId}`);
+                      svgElement.classList.add(`svgRelation${eventId}-${parentId}`);
                         svgElement.setAttribute("data-parent-event", parentId);
                         svgElement.setAttribute("data-event", eventId);
                         if (!eventsSeen.includes(parseInt(eventId))) {
@@ -388,10 +388,8 @@ export default function Tree() {
                         svgElement.setAttribute("data-event", eventId);
 
                         svgContainer.appendChild(svgElement);
-                        console.log("line created : ", svgContainer)
-                        // ADD SVG TO HTML
+                          // ADD SVG TO HTML
                         svgContainer.appendChild(svgElement);
-                        console.log("line created : ", svgContainer)
 
                     })
                 }
@@ -532,8 +530,9 @@ export default function Tree() {
                             flexDirection: "column",
                             justifyContent: "end",
 
-                            paddingTop: "4%",
-                            ...getMarginTop(eventsSeen,endOfTree),
+                            left: "50%",
+                            paddingTop: "3%",
+                            ...getMarginTop(eventsSeen,endOfTree,fullMap.size),
                         }}
                         id="treeContainer"
                     >
@@ -586,7 +585,7 @@ export default function Tree() {
                     </div>
 
                 }
-                { !endOfHistoryOpen &&
+                { !endOfHistoryOpen && endOfTree &&
                     <Button text={"Revenir au menu"} action={"/"} ></Button>
                 }
             </div>
