@@ -526,7 +526,7 @@ export default function Tree() {
                     <div
                         style={{
                             transform: `translate(0px, 0px)`,
-                            width: "80%", // Large zone à explorer
+                            width: "97%", // Large zone à explorer
 
                             display: "flex",
                             flexDirection: "column",
@@ -582,12 +582,13 @@ export default function Tree() {
                             </Event>
 
                         </div>
-                        {endOfTree &&
-                            <Button text={"Revenir au menu"} action={"/"} ></Button>
-                        }
-                    </div>
-                }
 
+                    </div>
+
+                }
+                { !endOfHistoryOpen &&
+                    <Button text={"Revenir au menu"} action={"/"} ></Button>
+                }
             </div>
 
 

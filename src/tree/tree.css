@@ -7,10 +7,12 @@
     box-sizing: border-box;
 
     overflow-y: scroll;
+    overflow-x: hidden;
 
 }
 .treePage .lastChoiceSpan{
-    min-height: 20px;
+
+    min-height: 33px;
     font-size: 27px;
 
 }
@@ -77,8 +79,8 @@ svg.youCanSeeLineItsEndOfTree line{
 }
 svg.lineAnimated  line{
 
-    stroke-dasharray: 360;
-    stroke-dashoffset: 305;
+    stroke-dasharray: 460;
+    stroke-dashoffset: 400;
     animation: draw-line 1.5s linear 0s  forwards; /* Animation */
 }
 
@@ -118,8 +120,7 @@ svg.lineAnimated  line{
 }
 
 .treePage  .buttonContainer {
-    position: absolute;
-    right: -10%;
-    bottom: -4%;
-    padding: 0;
+    position: fixed;
+    right: -2%;
+    bottom: -1%;
 }
