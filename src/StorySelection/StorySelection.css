@@ -16,6 +16,7 @@
     flex-direction: column;
     background-color: var(--var-bg-color);
     background-image: url('../assets/home/home-blur-bg.svg');
+    background-size: cover;
 }
 .gridContainer{
     height: 10vh;
