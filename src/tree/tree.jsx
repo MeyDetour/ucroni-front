@@ -6,7 +6,16 @@ import React from 'react';
 import axios from "axios";
 import {GlobalConstants} from "../Common/GlobalConstants.js";
 import {useParams} from "react-router-dom";
-import {buildTree, createLineSvg, getEventPosition, logInfo, logSeparator, logTitle, logWarning} from "./system.jsx";
+import {
+    buildTree,
+    createLineSvg,
+    getEventPosition,
+    getMarginTop,
+    logInfo,
+    logSeparator,
+    logTitle,
+    logWarning
+} from "./system.jsx";
 import Choice from "../Choice/choice.jsx";
 import EndOfHistory from "../EndOfHistory/EndOfHistory.jsx";
 import Button from "../components/Button/button.jsx";
@@ -20,6 +29,7 @@ export default function Tree() {
     const [endOfTree, setEndOfTree] = useState(false)
     const [endOfHistoryOpen, setEndOfHistoryOpen] = useState(false)
     const [fullMap, setFullMap] = useState(null)
+    const [firstEventId, setFirstEventId] = useState(null)
 
 
     //  for choice
@@ -35,19 +45,22 @@ export default function Tree() {
             try {
                 logSeparator()
                 logTitle("get data")
-                let firstEventId = await axios.get(`${GlobalConstants.baseUrl}api/story/${storieId}`);
-                firstEventId = firstEventId.data.firstEvent
+                let firstEventIdata = await fetch(`${GlobalConstants.baseUrl}api/story/${storieId}`);
+                firstEventIdata = await firstEventIdata.json();
+                console.log(firstEventIdata)
+                firstEventIdata = firstEventIdata.firstEvent
+                setFirstEventId(firstEventIdata)
                 const response = await axios.get(`${GlobalConstants.baseUrl}api/events/of/story/${storieId}`);
                 const buildTreeData = buildTree(response.data)
-                setTree(buildTreeData.get(firstEventId))
+                setTree(buildTreeData.get(firstEventIdata))
                 setFullMap(buildTreeData)
                 setEventsSeen((prevEventsSeen) => {
-                    if (!prevEventsSeen.includes(firstEventId)) {
-                        return [...prevEventsSeen, firstEventId];
+                    if (!prevEventsSeen.includes(firstEventIdata)) {
+                        return [...prevEventsSeen, firstEventIdata];
                     }
                     return prevEventsSeen;
                 });
-                setCurrentEvent(buildTreeData.get(firstEventId))
+                setCurrentEvent(buildTreeData.get(firstEventIdata))
 
                 logSeparator()
             } catch (err) {
@@ -103,7 +116,7 @@ export default function Tree() {
 
         console.log("event seen : ", eventsSeen)
         // set end of tree
-        if (event.finish) {
+        if (event.finish || event.children.length === 0) {
             logInfo("End of TREE")
             setEndOfTree(true)
         }
@@ -258,7 +271,10 @@ export default function Tree() {
     logSeparator()
     logTitle("STATE OF YOU DATA")
 
-    console.log("state of tree : ", tree)
+    console.log("state of tree : ", tree ? tree : undefined)
+    console.log("full map : ", fullMap ? fullMap : undefined)
+    console.log("first event id : ", firstEventId ? firstEventId : undefined)
+    console.log(" tree id : ", tree ? tree.id : undefined)
     console.log("events seen : ", eventsSeen)
     console.log("end of tree : ", endOfTree)
     console.log("open end of history : ", endOfHistoryOpen)
@@ -277,13 +293,17 @@ export default function Tree() {
         const createLines = () => {
 
 
+
             /* CREATE LINES*/
             const svgContainer = document.getElementById("treeContainer");
             let events = document.querySelectorAll('[id^="event"]');
 
 
+
             // REMOVE DUPLICATED EVENT
             events.forEach((e) => {
+                console.log(e)
+
                 let id = e.getAttribute("data-event-id");
                 id = parseInt(id)
                 let existingEvent = document.querySelectorAll("#event" + id);
@@ -336,6 +356,7 @@ export default function Tree() {
                         let parentElement = document.querySelector("#event" + parentId);
                         const parentPosition = getEventPosition(parentElement);
                         const subEventPosition = getEventPosition(e);
+                        console.log(parentElement)
                         console.log(parentPosition)
                         console.log(subEventPosition)
                         console.log(parentId)
@@ -343,6 +364,7 @@ export default function Tree() {
 
                         // CREATE SVG WITH LINE IN
                         const svgElement = createLineSvg(parentPosition, subEventPosition)
+                        console.log(svgElement)
                         svgElement.classList.add(`svgRelation${eventId}-${parentId}`);
                         svgElement.setAttribute("data-parent-event", parentId);
                         svgElement.setAttribute("data-event", eventId);
@@ -414,13 +436,13 @@ export default function Tree() {
         }
 
 
-        if (tree && fullMap && !choiceIsDone && !isThereChoice) {
+        if (tree && fullMap && !choiceIsDone && !isThereChoice  ) {
             console.log("createlines")
             createLines();
         }
 
 
-        if (choiceIsDone && !isThereChoice && valueOfChoice) {
+        if (choiceIsDone && !isThereChoice && valueOfChoice ) {
 
             logSeparator()
             logTitle("Choice choosen")
@@ -445,7 +467,7 @@ export default function Tree() {
 
                 });
 
-                if (eventChoosen && eventChoosen.finish) {
+                if (eventChoosen && eventChoosen.finish || eventChoosen.children.length === 0) {
                     logInfo("End of TREE")
                     setEndOfTree(true)
                     setEndOfHistoryOpen(true)
@@ -479,7 +501,8 @@ export default function Tree() {
             <EndOfHistory current={currentEvent} setEndOfHistoryOpen={setEndOfHistoryOpen} ></EndOfHistory>
             }
 
-            <div className={"treePage"}>
+            <div className={"treePage"}
+            >
                     <span className={"lastChoiceSpan"}>
                       {(() => {
                           if (!currentEvent || !fullMap || !currentEvent.parents) return null;
@@ -498,7 +521,7 @@ export default function Tree() {
 
                     <h2 className={"currentTextEvent"}>{currentEvent && currentEvent.text ? currentEvent.text : "Selectionnez un évenement, Cliquez pour voir l'histoire, double-cliquez pour choisir et passer à l'étape suivante !"}</h2>
                 </div>
-                {tree && currentEvent && fullMap && tree.id &&
+                {tree && currentEvent && fullMap && tree.id  && firstEventId &&
 
                     <div
                         style={{
@@ -507,7 +530,10 @@ export default function Tree() {
 
                             display: "flex",
                             flexDirection: "column",
-                            justifyContent: "end"
+                            justifyContent: "end",
+
+                            paddingTop: "4%",
+                            ...getMarginTop(eventsSeen,endOfTree),
                         }}
                         id="treeContainer"
                     >
@@ -545,15 +571,14 @@ export default function Tree() {
                              }}
 
                         >
-
-                            <Event
+                              <Event
                                 image={tree.images}
                                 text={tree.text}
                                 textAction={tree.interaction}
-                                addedClassname={tree.id === 1 ? "firstEvent" : null}
-                                focus={currentEvent === tree}>
+                                addedClassname={"firstEvent"}
+                                focus={currentEvent === tree}
                                 injectedid={tree.id}
-
+                                >
                             </Event>
 
                         </div>

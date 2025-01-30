@@ -57,9 +57,9 @@ const App = () => {
 
                     // Redirect to another page after a delay when recap is visible
                     setTimeout(async () => {
-                        let api = await fetch(`${GlobalConstants.baseUrl}api/stories`)
+                        let api = await fetch(`${GlobalConstants.baseUrl}api/story/${storieId}`)
+
                         let apijson = await api.json()
-                        apijson = apijson[0]
                         const text = apijson.description
                         const title = apijson.title;
                         const buttonContent = "Commencer"

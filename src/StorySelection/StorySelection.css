@@ -106,16 +106,16 @@
     font-family: 'Oxanium', sans-serif;
 }
 .card1{
-    background-image: url('../assets/card/card1.png');
+    background-image: url('../assets/card/cardBackground.png');
 }
 .card2{
-    background-image: url('../assets/card/card2.png');
+    background-image: url('../assets/card/cardBackground.png');
 }
 .card3{
-    background-image: url('../assets/card/card3.png');
+    background-image: url('../assets/card/cardBackground.png');
 }
 .card4{
-    background-image: url('../assets/card/card4.png');
+    background-image: url('../assets/card/cardBackground.png');
 }
 
 

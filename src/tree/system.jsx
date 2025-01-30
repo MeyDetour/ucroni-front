@@ -94,3 +94,13 @@ export function buildTree(events) {
     })
     return tree //Get racine
 }
+
+
+export function getMarginTop (eventsSeen,endOfTree){
+    if (!eventsSeen || endOfTree) return {};
+    if (eventsSeen.length < 2) return { marginTop: "-22%" };
+    if (eventsSeen.length < 4) return { marginTop: "-5%" };
+    if (eventsSeen.length < 6) return { marginTop: "0%" };
+
+    return {}
+}

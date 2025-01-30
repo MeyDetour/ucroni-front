@@ -3,6 +3,7 @@ import "../PageDeBase/pageDeBase.css"
 import React, {useEffect, useState} from 'react';
 import "../components/Button/button.css"
 import {useNavigate} from "react-router-dom";
+import {GlobalConstants} from "../Common/GlobalConstants.js";
 
 // eslint-disable-next-line react/prop-types
 export default function EndOfHistory({current, setEndOfHistoryOpen}) {
@@ -16,14 +17,15 @@ export default function EndOfHistory({current, setEndOfHistoryOpen}) {
         }
 
     }, [current, setRenderText]);
-
+    console.log(current);
+    console.log(current.endImage)
     return (
         <>
             {!renderText ?
 
                 <div className={"endOfHistory"}>
                     <div>
-                        <img src={current.endImage ? current.endImage :  current.images ? current.images  : "/src/assets/tree/ReadyPlayerOne.jpg"} alt=""/>
+                        <img src={current.endImage ? GlobalConstants.baseUrl+current.endImage :  current.images ? GlobalConstants.baseUrl+ current.images  : "/src/assets/tree/ReadyPlayerOne.jpg"} alt=""/>
                     </div>
                 </div>
                 :

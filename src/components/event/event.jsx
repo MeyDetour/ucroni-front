@@ -3,13 +3,14 @@ import {GlobalConstants} from "../../Common/GlobalConstants.js";
 // eslint-disable-next-line react/prop-types
 export default function Event({
                                   parentIds = null,
-                                  injectedid = 1,
+                                  injectedid ,
                                   text,
                                   textAction,
                                   focus = false,
                                   image,
                                   addedClassname = " "
                               }) {
+
     return (
         <div data-event-id={injectedid}
              data-parent-ids={parentIds}
